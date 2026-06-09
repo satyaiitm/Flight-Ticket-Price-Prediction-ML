@@ -1,3 +1,10 @@
+import numpy as np
+import pandas as pd
+
+
+
+
+
 def clean_flight_1(row):
     """
     correcting the flight number
@@ -42,7 +49,8 @@ def impute_airline(row):
 
 
 
-def logical_imputer(df):
+def logical_imputer(dfr):
+    df=dfr.copy()
 
     df['flight']=df.apply(clean_flight_1, axis=1)
     df['airline']=df.apply(impute_airline, axis=1)
@@ -102,3 +110,4 @@ def logical_imputer(df):
     df.dropna(inplace=True)
 
     return df
+
